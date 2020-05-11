@@ -17,7 +17,15 @@ import java.util.concurrent.TimeUnit;
 public class CacheTemplate {
     @Autowired
     private RedisTemplate redisTemplate;
-
+    /**
+    * @Title: CacheTemplate
+    * @Description: (防止缓存击穿模板工具类)
+    * @author lzq
+    * @params
+    * @return
+    * @date 2020/5/11
+    * @version V1.0
+    */
    public <T> T loadCache(String key,Long expires,BaseServiceHandler<T> service){
        //避免缓存击穿代码实现
        T result = (T) redisTemplate.opsForValue().get(key);
