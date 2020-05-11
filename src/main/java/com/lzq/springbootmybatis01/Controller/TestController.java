@@ -2,6 +2,7 @@ package com.lzq.springbootmybatis01.Controller;
 
 import com.lzq.springbootmybatis01.Entity.User;
 import com.lzq.springbootmybatis01.Mapper.UserMappping;
+import com.lzq.springbootmybatis01.service.UserService;
 import com.lzq.springbootmybatis01.util.ContextStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,8 @@ import java.util.List;
 public class TestController {
     @Resource
     private UserMappping mapper;
+    @Resource
+    private UserService service;
     @RequestMapping("/enheng")
     public List<User> method(){
         List<User> list= mapper.method();
@@ -44,6 +47,11 @@ public class TestController {
         ContextStatus contextStatus = new ContextStatus();
         BigDecimal bigDecimal = contextStatus.calRecharge(1,111);
         System.out.println(bigDecimal.setScale(2)+" ");
+    }
+    @RequestMapping("/testUser")
+    public User selectUserById(Integer id){
+        System.out.println("来了老弟");
+        return  service.selectUserByTemplate(id);
     }
 
 }
