@@ -10,4 +10,5 @@ import org.springframework.stereotype.Component;
  **/
 public class Constant {
     public static final String USER_KEY="redis:user:";
+    public final static String CONSTANT_SECKILLGOODS_ID_PRBFIX="CONSTANT_SECKILLGOODS_ID_PRBFIX_";
 }
