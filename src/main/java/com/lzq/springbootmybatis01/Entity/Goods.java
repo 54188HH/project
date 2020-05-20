@@ -22,6 +22,16 @@ public class Goods implements Serializable {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", goodsName='" + goodsName + '\'' +
+                ", stock=" + stock +
+                ", price=" + price +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

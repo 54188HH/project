@@ -2,9 +2,12 @@ package com.lzq.springbootmybatis01.Controller;
 
 import com.lzq.springbootmybatis01.Entity.Goods;
 import com.lzq.springbootmybatis01.constant.Constant;
+import com.lzq.springbootmybatis01.service.SeckillService;
 import com.lzq.springbootmybatis01.service.impl.SeckillServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,16 +25,22 @@ import java.util.List;
 * @Date: 2020-5-20
 */
 public class SeckillController {
-    @Resource
+    @Autowired
     private RedisTemplate redisTemplate;
+    @Autowired
+    private SeckillService seckillService;
 
+    @RequestMapping("/seckill{id}")
+    public String seckillGoods(Integer id,String userId){
+        return  seckillService.saveOrder(id,userId);
+    }
     @RequestMapping("/saveOrder")
     public String saveOrder(Long id){
         List<Goods> list = new ArrayList<Goods>();
         Goods goods = new Goods();
         goods.setGoodsName("1+手机");
         goods.setPrice(new BigDecimal(3500.00));
-        goods.setStock(50);
+        goods.setStock(3);
         goods.setId(1);
         Goods g = new Goods();
         g.setGoodsName("外星人笔记本");
@@ -42,7 +51,7 @@ public class SeckillController {
         list.add(goods);
         //2.吧合法秒杀的商品数据放入redis
         for (Goods g1 :list){
-            redisTemplate.boundHashOps(Goods.class.getSimpleName()).put(goods.getId(),g1);
+            redisTemplate.boundHashOps(Goods.class.getSimpleName()).put(g1.getId(),g1);
             //为每个商品创建一个队列，队列中放和库存量相同数量的商品id
             createQueue(g1.getId(),g1.getStock());
         }
@@ -56,4 +65,5 @@ public class SeckillController {
             }
         }
     }
+
 }
