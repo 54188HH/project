@@ -35,13 +35,13 @@ public class AsyncServiceImpl implements AsyncService {
            * redisTemplate.boundHashOps(订单实体类.class.getSimpleName()).put(orderRecord.getUserId(),订单实体类);
            */
           System.out.println("库存：："+gg.toString());
-          synchronized (AsyncService.class){
-              System.out.println("库存：："+gg.getStock());
-              //获取最新的userid和商品id
-              orderRecord = (OrderRecord) redisTemplate.boundListOps(OrderRecord.class.getSimpleName()).rightPop();
+          synchronized (AsyncServiceImpl.class){
+              //获取最新的商品信息
+              gg = (Goods) redisTemplate.boundHashOps(Goods.class.getSimpleName()).get(orderRecord.getId());
 
               //库存 减 1
               gg.setStock(gg.getStock()-1);
+              System.out.println("商品剩余库存"+gg.getStock());
               //判断库存是否<=0
               if (gg.getStock()<=0){
                   //如果小于等于0 更新数据库  删除秒杀商品的redis缓存
@@ -54,7 +54,6 @@ public class AsyncServiceImpl implements AsyncService {
           }
       }
     } catch (Exception e) {
-
       e.printStackTrace();
     }
 

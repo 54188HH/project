@@ -30,7 +30,7 @@ public class SeckillController {
     @Autowired
     private SeckillService seckillService;
 
-    @RequestMapping("/seckill{id}")
+    @RequestMapping("/seckill")
     public String seckillGoods(Integer id,String userId){
         return  seckillService.saveOrder(id,userId);
     }
