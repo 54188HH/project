@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>登录页面布局</title>
+
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+
+        body {
+            background: #1f9191 url(/static/img/login-wrapper.png) right top no-repeat;
+        }
+
+        .login-wrap {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 800px;
+            height: 626px;
+            margin-left: -400px;
+            margin-top: -363px;
+            padding-top: 100px;
+            background: url(/static/img/loginbg.png) center 0 no-repeat;
+            font-family: "微软雅黑", Regular, "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+            font-size: 16px;
+        }
+
+        .login-wrap .title {
+            padding: 44px 0 20px;
+            color: #36383c;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .login-wrap .form {
+            width: 565px;
+            height: 346px;
+            margin: 0 auto;
+        }
+
+        input {
+            width: 220px;
+            height: 35px;
+            border: 1px black solid;
+            font-size: 15px;
+            margin-left: 170px;
+        }
+
+        button {
+            width: 150px;
+            height: 35px;
+            border: none;
+            margin-left: 200px;
+            background-color: #1F9191;
+            font-size: 17px;
+        }
+
+       </style>
+</head>
+
+<body>
+<div class="login-wrap">
+    <div class="title">欢迎登录</div>
+    <form action="/loginPage" name="loginForm" target="_self" method="POST">
+        <div class="form">
+            <input type="text" name="username"></br></br>
+            <input type="password" name="password"></br></br>
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login">
+                登录
+            </button>
+        </div>
+
+    </form>
+</div>
+</body>
+
+</html>
