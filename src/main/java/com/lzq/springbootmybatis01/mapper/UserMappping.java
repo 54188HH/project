@@ -1,6 +1,6 @@
-package com.lzq.springbootmybatis01.Mapper;
+package com.lzq.springbootmybatis01.mapper;
 
-import com.lzq.springbootmybatis01.Entity.User;
+import com.lzq.springbootmybatis01.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

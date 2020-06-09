@@ -1,12 +1,11 @@
 package com.lzq.springbootmybatis01.service.impl;
 
-import com.lzq.springbootmybatis01.Entity.User;
-import com.lzq.springbootmybatis01.Mapper.UserMappping;
+import com.lzq.springbootmybatis01.entity.User;
+import com.lzq.springbootmybatis01.mapper.UserMappping;
 import com.lzq.springbootmybatis01.component.CacheTemplate;
 import com.lzq.springbootmybatis01.constant.Constant;
 import com.lzq.springbootmybatis01.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationListener;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 

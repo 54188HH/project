@@ -1,7 +1,7 @@
 package com.lzq.springbootmybatis01.thread.impl;
 
-import com.lzq.springbootmybatis01.Entity.Goods;
-import com.lzq.springbootmybatis01.Entity.OrderRecord;
+import com.lzq.springbootmybatis01.entity.Goods;
+import com.lzq.springbootmybatis01.entity.OrderRecord;
 import com.lzq.springbootmybatis01.thread.AsyncService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,11 +29,9 @@ public class AsyncServiceImpl implements AsyncService {
       if (null != orderRecord){
         System.out.println("商品id：："+orderRecord.getId());
         Goods gg = (Goods) redisTemplate.boundHashOps(Goods.class.getSimpleName()).get(orderRecord.getId());
-        //生产订单表插入数据库或者redis
-          /**
-           * 这里选择插入到redis里面
-           * redisTemplate.boundHashOps(订单实体类.class.getSimpleName()).put(orderRecord.getUserId(),订单实体类);
-           */
+           //生产订单表插入数据库或者redis
+          //这里选择插入到redis里面
+          //redisTemplate.boundHashOps(订单实体类.class.getSimpleName()).put(orderRecord.getUserId(),订单实体类);
           System.out.println("库存：："+gg.toString());
           synchronized (AsyncServiceImpl.class){
               //获取最新的商品信息

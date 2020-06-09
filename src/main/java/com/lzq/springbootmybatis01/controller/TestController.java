@@ -1,7 +1,7 @@
-package com.lzq.springbootmybatis01.Controller;
+package com.lzq.springbootmybatis01.controller;
 
-import com.lzq.springbootmybatis01.Entity.User;
-import com.lzq.springbootmybatis01.Mapper.UserMappping;
+import com.lzq.springbootmybatis01.entity.User;
+import com.lzq.springbootmybatis01.mapper.UserMappping;
 import com.lzq.springbootmybatis01.service.UserService;
 import com.lzq.springbootmybatis01.util.ContextStatus;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
 package com.lzq.springbootmybatis01.util.impl;
 
-import com.lzq.springbootmybatis01.Mapper.UserMappping;
+import com.lzq.springbootmybatis01.mapper.UserMappping;
 import com.lzq.springbootmybatis01.util.BeanUtils;
 import com.lzq.springbootmybatis01.util.Strategry;
 import com.lzq.springbootmybatis01.util.Type;

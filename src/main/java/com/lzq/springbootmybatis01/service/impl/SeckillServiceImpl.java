@@ -1,7 +1,7 @@
 package com.lzq.springbootmybatis01.service.impl;
 
-import com.lzq.springbootmybatis01.Entity.Goods;
-import com.lzq.springbootmybatis01.Entity.OrderRecord;
+import com.lzq.springbootmybatis01.entity.Goods;
+import com.lzq.springbootmybatis01.entity.OrderRecord;
 import com.lzq.springbootmybatis01.constant.Constant;
 import com.lzq.springbootmybatis01.service.SeckillService;
 import com.lzq.springbootmybatis01.thread.AsyncService;

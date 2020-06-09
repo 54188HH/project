@@ -1,17 +1,13 @@
-package com.lzq.springbootmybatis01.Controller;
+package com.lzq.springbootmybatis01.controller;
 
-import com.lzq.springbootmybatis01.Entity.Goods;
+import com.lzq.springbootmybatis01.entity.Goods;
 import com.lzq.springbootmybatis01.constant.Constant;
 import com.lzq.springbootmybatis01.service.SeckillService;
-import com.lzq.springbootmybatis01.service.impl.SeckillServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;

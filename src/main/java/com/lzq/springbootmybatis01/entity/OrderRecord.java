@@ -1,4 +1,4 @@
-package com.lzq.springbootmybatis01.Entity;
+package com.lzq.springbootmybatis01.entity;
 
 import java.io.Serializable;
 
