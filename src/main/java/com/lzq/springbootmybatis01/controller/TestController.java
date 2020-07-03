@@ -1,10 +1,14 @@
 package com.lzq.springbootmybatis01.controller;
 
+import com.lzq.springbootmybatis01.entity.ManageInfo;
 import com.lzq.springbootmybatis01.entity.User;
+import com.lzq.springbootmybatis01.mapper.ManageInfoMapper;
 import com.lzq.springbootmybatis01.mapper.UserMappping;
 import com.lzq.springbootmybatis01.service.UserService;
 import com.lzq.springbootmybatis01.util.ContextStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -17,6 +21,8 @@ public class TestController {
     private UserMappping mapper;
     @Resource
     private UserService service;
+    @Autowired
+    private ManageInfoMapper manageInfoMapper;
     @RequestMapping("/enheng")
     public List<User> method(){
         List<User> list= mapper.method();
@@ -53,5 +59,10 @@ public class TestController {
         System.out.println("来了老弟");
         return  service.selectUserByTemplate(id);
     }
-
+    @RequestMapping("/oneMany")
+    @ResponseBody
+    public List<ManageInfo> mm(){
+        List<ManageInfo> list = manageInfoMapper.selectByPrimaryKey();
+        return list;
+    }
 }
