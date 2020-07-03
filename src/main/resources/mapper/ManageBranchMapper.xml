@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzq.springbootmybatis01.mapper.ManageBranchMapper">
+  <resultMap id="BaseResultMap" type="com.lzq.springbootmybatis01.entity.ManageBranch">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="manage_id" jdbcType="INTEGER" property="manageId" />
+    <result column="manage_major_name" jdbcType="VARCHAR" property="manageMajorName" />
+    <result column="manage_major_note" jdbcType="VARCHAR" property="manageMajorNote" />
+    <result column="manage_name" jdbcType="VARCHAR" property="manageName" />
+  </resultMap>
+</mapper>

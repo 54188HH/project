@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzq.springbootmybatis01.mapper.ManageInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.lzq.springbootmybatis01.entity.ManageInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="manage_name" property="manageName" jdbcType="VARCHAR" />
+    <result column="manage_note" property="manageNote" jdbcType="VARCHAR" />
+    <result column="insert_time" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <collection property="list" ofType="com.lzq.springbootmybatis01.entity.ManageBranch">
+      <result property="id" jdbcType="INTEGER" column="m_id" />
+      <result column="manage_id" jdbcType="INTEGER" property="manageId" />
+      <result column="manage_major_name" jdbcType="VARCHAR" property="manageMajorName" />
+      <result column="manage_major_note" jdbcType="VARCHAR" property="manageMajorNote" />
+    </collection>
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+       SELECT
+        t.*, m.id AS m_id,
+        m.manage_id,
+        m.manage_major_name,
+        m.manage_major_note
+    FROM
+        t_manage_info t
+        left join
+        t_manage_branch_info m
+        on
+        t.id = m.manage_id
+  </select>
+</mapper>
