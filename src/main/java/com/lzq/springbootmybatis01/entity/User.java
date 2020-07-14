@@ -11,6 +11,8 @@ public class User  implements Serializable {
     private Double weight;
     private Integer age;
 
+    public User(){};
+
     public Integer getId() {
         return id;
     }

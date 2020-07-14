@@ -16,15 +16,15 @@
   </resultMap>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap">
        SELECT
-        t.*, m.id AS m_id,
-        m.manage_id,
-        m.manage_major_name,
-        m.manage_major_note
-    FROM
-        t_manage_info t
+            t.*, m.id AS m_id,
+            m.manage_id,
+            m.manage_major_name,
+            m.manage_major_note
+        FROM
+          t_manage_info t
         left join
-        t_manage_branch_info m
+          t_manage_branch_info m
         on
-        t.id = m.manage_id
+          t.id = m.manage_id
   </select>
 </mapper>
